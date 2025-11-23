@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles.css">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -29,45 +30,54 @@
         }
     </script>
 </head>
-<body class="text-gray-800 antialiased">
+<body class="text-gray-800 antialiased dark:bg-gray-900 dark:text-gray-100">
 
     <!-- Header -->
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4 dark:bg-gray-900/90">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             <!-- Logo -->
             <a href="/" class="flex items-center">
-                <img src="./assets/icons/mplogo.svg" alt="Make Print Logo" class="h-8">
+                <img src="./assets/icons/mplogo.svg" alt="Make Print Logo" class="h-8 filter dark:invert">
             </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
-                <a href="#features" class="text-gray-700 hover:text-primary-main transition">Features</a>
-                <a href="#faq" class="text-gray-700 hover:text-primary-main transition">FAQ</a>
-                <a href="docs.html" class="text-gray-700 hover:text-primary-main transition">Docs</a>
-                <a href="https://github.com/make-print" target="_blank" class="text-gray-700 hover:text-primary-main transition">GitHub</a>
+                <a href="#features" class="text-gray-700 hover:text-primary-main transition dark:text-gray-300 dark:hover:text-primary-main">Features</a>
+                <a href="#faq" class="text-gray-700 hover:text-primary-main transition dark:text-gray-300 dark:hover:text-primary-main">FAQ</a>
+                <a href="docs.html" class="text-gray-700 hover:text-primary-main transition dark:text-gray-300 dark:hover:text-primary-main">Docs</a>
+                <a href="https://github.com/make-print" target="_blank" class="text-gray-700 hover:text-primary-main transition dark:text-gray-300 dark:hover:text-primary-main">GitHub</a>
             </nav>
 
             <!-- Auth Buttons & Mobile Menu -->
             <div class="flex items-center space-x-4">
+                <!-- Dark Mode Toggle -->
+                <label for="theme-toggle" class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="theme-toggle" class="sr-only peer">
+                    <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-7 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-primary-main flex items-center justify-between px-1 shadow-inner after:z-20">
+                        <iconify-icon icon="carbon:moon" class="text-white text-xs ml-1"></iconify-icon>
+                        <iconify-icon icon="carbon:sun" class="text-gray-500 text-xs mr-1"></iconify-icon>
+                    </div>
+                </label>
+
                 <a href="mailto:erud1t3.devs@gmail.com?subject=Custom Solution Inquiry" class="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-bold text-white bg-primary-main rounded-lg hover:bg-primary-dark transition shadow-lg shadow-primary-main/30">
                     <iconify-icon icon="mdi:rocket-launch" class="mr-2" width="20"></iconify-icon>
                     Custom Solutions
                 </a>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-primary-main focus:outline-none">
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-primary-main focus:outline-none dark:text-gray-300">
                     <iconify-icon icon="carbon:menu" width="28"></iconify-icon>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg py-4 px-4 flex flex-col space-y-4">
-            <a href="#features" class="mobile-link text-gray-700 hover:text-primary-main font-medium">Features</a>
-            <a href="#faq" class="mobile-link text-gray-700 hover:text-primary-main font-medium">FAQ</a>
-            <a href="docs.html" class="mobile-link text-gray-700 hover:text-primary-main font-medium">Docs</a>
-            <a href="https://github.com/make-print" target="_blank" class="mobile-link text-gray-700 hover:text-primary-main font-medium">GitHub</a>
-            <div class="border-t border-gray-100 pt-4 flex flex-col space-y-3">
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg py-4 px-4 flex flex-col space-y-4 dark:bg-gray-900 dark:border-gray-800">
+            <a href="#features" class="mobile-link text-gray-700 hover:text-primary-main font-medium dark:text-gray-300">Features</a>
+            <a href="#faq" class="mobile-link text-gray-700 hover:text-primary-main font-medium dark:text-gray-300">FAQ</a>
+            <a href="docs.html" class="mobile-link text-gray-700 hover:text-primary-main font-medium dark:text-gray-300">Docs</a>
+            <a href="https://github.com/make-print" target="_blank" class="mobile-link text-gray-700 hover:text-primary-main font-medium dark:text-gray-300">GitHub</a>
+            <div class="border-t border-gray-100 pt-4 flex flex-col space-y-3 dark:border-gray-800">
                 <a href="mailto:erud1t3.devs@gmail.com?subject=Custom Solution Inquiry" class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-bold text-white bg-primary-main rounded-lg hover:bg-primary-dark transition shadow-lg shadow-primary-main/30">
                     <iconify-icon icon="mdi:rocket-launch" class="mr-2" width="20"></iconify-icon>
                     Custom Solutions
@@ -77,25 +87,25 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-white to-gray-50">
-        <div class="absolute inset-0 bg-[url('./assets/images/mp_art/light.png')] bg-cover bg-center opacity-10"></div>
+    <section class="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+        <div class="absolute inset-0 bg-[url('./assets/images/mp_art/light.png')] bg-cover bg-center opacity-10 dark:opacity-5"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
             
             <!-- Text Content -->
             <div class="text-center max-w-4xl mx-auto space-y-8 mb-16">
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-gray-900">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">
                     <span class="text-primary-main">Open Source</span> <br>
                     Prototyping Workflow
                 </h1>
-                <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
                     Elevate your prototyping and product development experience with our open source integrated project management and AI assistance platform.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://github.com/make-print" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white bg-gray-900 hover:bg-gray-800 transition shadow-lg transform hover:-translate-y-0.5">
+                    <a href="https://github.com/make-print" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 transition shadow-lg transform hover:-translate-y-0.5">
                         <iconify-icon icon="akar-icons:github-fill" class="mr-2" width="24"></iconify-icon>
                         View on GitHub
                     </a>
-                    <a href="#features" class="inline-flex items-center justify-center px-8 py-4 border border-gray-200 text-lg font-bold rounded-xl text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 transition shadow-sm transform hover:-translate-y-0.5">
+                    <a href="#features" class="inline-flex items-center justify-center px-8 py-4 border border-gray-200 dark:border-gray-700 text-lg font-bold rounded-xl text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition shadow-sm transform hover:-translate-y-0.5">
                         Learn More
                     </a>
                 </div>
@@ -103,7 +113,7 @@
 
             <!-- Video Container -->
             <div class="relative w-full max-w-6xl mx-auto">
-                <div class="relative rounded-2xl shadow-2xl overflow-hidden border border-gray-200 bg-gray-900">
+                <div class="relative rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-900">
                     <div style="position: relative; padding-bottom: 62.5%; height: 0;">
                         <iframe src="https://www.loom.com/embed/9f5546a86b714f78b6d346d996f07b13?sid=91272f13-2436-47d2-b4f0-b519bdf6997d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
                     </div>
@@ -117,84 +127,84 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-24 bg-white overflow-hidden">
+    <section id="features" class="py-24 bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
             
             <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Everything You Need!</h2>
-                <p class="text-gray-500">Streamline your entire workflow from idea to production.</p>
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Everything You Need!</h2>
+                <p class="text-gray-500 dark:text-gray-400">Streamline your entire workflow from idea to production.</p>
             </div>
 
             <!-- Feature 1: Kanban -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-4">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Track all tasks and projects in one place.</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Track all tasks and projects in one place.</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                         The Kanban board lets you add and edit all your projects in one central space. Create tasks, assign members of your teams, add files and machines!
                     </p>
                 </div>
                 <div class="md:col-span-8">
-                    <img src="./assets/screenshots/kanban.png" alt="Kanban Board" class="w-full rounded-2xl shadow-2xl border border-gray-100">
+                    <img src="./assets/screenshots/kanban.png" alt="Kanban Board" class="w-full rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700">
                 </div>
             </div>
 
             <!-- Feature 2: File Preview (Reversed) -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-4 md:order-2">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Inspect parts directly from your browser.</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Inspect parts directly from your browser.</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                         Preview .stl, .step, .obj, .fbx, .3mf, .gltf 3D formats and save time on preliminary inspection and part validation. Easily organize your files.
                     </p>
                 </div>
                 <div class="md:col-span-8 md:order-1">
-                    <img src="./assets/screenshots/file_preview.png" alt="File Preview" class="w-full rounded-2xl shadow-2xl border border-gray-100">
+                    <img src="./assets/screenshots/file_preview.png" alt="File Preview" class="w-full rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700">
                 </div>
             </div>
 
             <!-- Feature 3: Chat -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-4">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Stay connected with your team and clients.</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Stay connected with your team and clients.</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                         Do not miss a thing about anything! Create chat threads, add your collaborators, and engage with your team about specific projects using our rich live chat.
                     </p>
                 </div>
                 <div class="md:col-span-8">
-                    <img src="./assets/screenshots/chat.png" alt="Chat" class="w-full rounded-2xl shadow-2xl border border-gray-100">
+                    <img src="./assets/screenshots/chat.png" alt="Chat" class="w-full rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700">
                 </div>
             </div>
 
             <!-- Feature 4: Inventory (Reversed) -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-4 md:order-2">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Manage your resources and inventory with ease.</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Manage your resources and inventory with ease.</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                         Browse our growing machine inventory for your 3D printers, CNCs, or create your own custom machine! Add your in-house materials and color options.
                     </p>
                 </div>
                 <div class="md:col-span-8 md:order-1">
-                    <img src="./assets/screenshots/inventory.png" alt="Inventory" class="w-full rounded-2xl shadow-2xl border border-gray-100">
+                    <img src="./assets/screenshots/inventory.png" alt="Inventory" class="w-full rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700">
                 </div>
             </div>
 
             <!-- Feature 5: AI -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-4">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">AI to empower your operations!</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">AI to empower your operations!</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                         Get quick, real-time answers on any project through AI chat. Save time sifting into cards and boost your productivity.
                     </p>
                 </div>
                 <div class="md:col-span-8">
-                    <img src="./assets/screenshots/ai.png" alt="AI Assistant" class="w-full rounded-2xl shadow-2xl border border-gray-100">
+                    <img src="./assets/screenshots/ai.png" alt="AI Assistant" class="w-full rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700">
                 </div>
             </div>
 
-             <!-- Feature 6: Quoting (Reversed) -->
-             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <!-- Feature 6: Quoting (Reversed) -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-4 md:order-2">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Accurately and automatically quote customer orders.</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Accurately and automatically quote customer orders.</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                         Our system quickly calculates quotes by analyzing 3D models, taking into account material costs, complexity, and your shop's cost structure.
                     </p>
                 </div>
@@ -209,25 +219,25 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-24 bg-white">
+    <section id="faq" class="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">Frequently Asked Questions</h2>
+            <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">Frequently Asked Questions</h2>
             
             <div class="space-y-4" id="faq-container">
                 <!-- FAQs injected by JS -->
             </div>
 
-            <div class="mt-16 text-center border border-dashed border-gray-300 rounded-2xl p-10">
-                <h3 class="text-2xl font-bold mb-4">Still Have Questions or Need a Custom Solution?</h3>
+            <div class="mt-16 text-center border border-dashed border-gray-300 dark:border-gray-700 rounded-2xl p-10">
+                <h3 class="text-2xl font-bold mb-4 dark:text-white">Still Have Questions or Need a Custom Solution?</h3>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-4">
-                    <a href="mailto:erud1t3.devs@gmail.com?subject=[Feedback] from Customer" class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition">
+                    <a href="mailto:erud1t3.devs@gmail.com?subject=[Feedback] from Customer" class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
                         General Support
                     </a>
                     <a href="mailto:erud1t3.devs@gmail.com?subject=Custom Solution Inquiry" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-main hover:bg-primary-dark transition shadow-lg shadow-primary-main/30">
                         Build Custom Solution
                     </a>
                 </div>
-                <p class="text-gray-500">Or email us at <a href="mailto:erud1t3.devs@gmail.com" class="text-primary-main hover:underline">erud1t3.devs@gmail.com</a></p>
+                <p class="text-gray-500 dark:text-gray-400">Or email us at <a href="mailto:erud1t3.devs@gmail.com" class="text-primary-main hover:underline">erud1t3.devs@gmail.com</a></p>
             </div>
         </div>
     </section>
@@ -247,24 +257,24 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-white border-t border-gray-100">
+    <footer class="py-12 bg-white border-t border-gray-100 dark:bg-gray-900 dark:border-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex justify-center mb-6">
-                <img src="./assets/icons/mplogo.svg" alt="Make Print" class="h-8">
+                <img src="./assets/icons/mplogo.svg" alt="Make Print" class="h-8 filter dark:invert">
             </div>
             
             <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://discord.gg/frr8qHsu6M" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:discord-fill" width="24"></iconify-icon></a>
-                <a href="https://www.linkedin.com/company/make-print/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:linkedin-box-fill" width="24"></iconify-icon></a>
-                <a href="https://www.youtube.com/@make-print" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:youtube-fill" width="24"></iconify-icon></a>
-                <a href="https://www.instagram.com/make.prints/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:instagram-fill" width="24"></iconify-icon></a>
+                <a href="https://discord.gg/frr8qHsu6M" target="_blank" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400"><iconify-icon icon="akar-icons:discord-fill" width="24"></iconify-icon></a>
+                <a href="https://www.linkedin.com/company/make-print/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400"><iconify-icon icon="akar-icons:linkedin-box-fill" width="24"></iconify-icon></a>
+                <a href="https://www.youtube.com/@make-print" target="_blank" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400"><iconify-icon icon="akar-icons:youtube-fill" width="24"></iconify-icon></a>
+                <a href="https://www.instagram.com/make.prints/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400"><iconify-icon icon="akar-icons:instagram-fill" width="24"></iconify-icon></a>
             </div>
 
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm text-gray-500 mb-6">
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm text-gray-500 dark:text-gray-400 mb-6">
                 <a href="mailto:erud1t3.devs@gmail.com" class="flex items-center hover:text-primary-main"><iconify-icon icon="ri:mail-line" class="mr-2"></iconify-icon> erud1t3.devs@gmail.com</a>
             </div>
 
-            <p class="text-xs text-gray-400">
+            <p class="text-xs text-gray-400 dark:text-gray-500">
                 © <span id="current-year">2024</span> Make-Print, LLC. All Rights Reserved.
             </p>
         </div>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles.css">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -29,45 +30,54 @@
         }
     </script>
 </head>
-<body class="text-gray-800 antialiased bg-gray-50">
+<body class="text-gray-800 antialiased bg-gray-50 dark:bg-gray-900 dark:text-gray-100">
 
     <!-- Header -->
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-2">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-2 dark:bg-gray-900/90 dark:border-b dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             <!-- Logo -->
             <a href="index.html" class="flex items-center">
-                <img src="./assets/icons/mplogo.svg" alt="Make Print Logo" class="h-8">
+                <img src="./assets/icons/mplogo.svg" alt="Make Print Logo" class="h-8 filter dark:invert">
             </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
-                <a href="index.html#features" class="text-gray-700 hover:text-primary-main transition">Features</a>
-                <a href="index.html#faq" class="text-gray-700 hover:text-primary-main transition">FAQ</a>
+                <a href="index.html#features" class="text-gray-700 hover:text-primary-main transition dark:text-gray-300 dark:hover:text-primary-main">Features</a>
+                <a href="index.html#faq" class="text-gray-700 hover:text-primary-main transition dark:text-gray-300 dark:hover:text-primary-main">FAQ</a>
                 <a href="#" class="text-primary-main font-bold transition">Docs</a>
-                <a href="https://github.com/make-print" target="_blank" class="text-gray-700 hover:text-primary-main transition">GitHub</a>
+                <a href="https://github.com/make-print" target="_blank" class="text-gray-700 hover:text-primary-main transition dark:text-gray-300 dark:hover:text-primary-main">GitHub</a>
             </nav>
 
             <!-- Auth Buttons & Mobile Menu -->
             <div class="flex items-center space-x-4">
+                <!-- Dark Mode Toggle -->
+                <label for="theme-toggle" class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="theme-toggle" class="sr-only peer">
+                    <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-7 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-primary-main flex items-center justify-between px-1 shadow-inner after:z-20">
+                        <iconify-icon icon="carbon:moon" class="text-white text-xs ml-1"></iconify-icon>
+                        <iconify-icon icon="carbon:sun" class="text-gray-500 text-xs mr-1"></iconify-icon>
+                    </div>
+                </label>
+
                 <a href="mailto:erud1t3.devs@gmail.com?subject=Custom Solution Inquiry" class="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-bold text-white bg-primary-main rounded-lg hover:bg-primary-dark transition shadow-lg shadow-primary-main/30">
                     <iconify-icon icon="mdi:rocket-launch" class="mr-2" width="20"></iconify-icon>
                     Custom Solutions
                 </a>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-primary-main focus:outline-none">
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-primary-main focus:outline-none dark:text-gray-300">
                     <iconify-icon icon="carbon:menu" width="28"></iconify-icon>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg py-4 px-4 flex flex-col space-y-4">
-            <a href="index.html#features" class="mobile-link text-gray-700 hover:text-primary-main font-medium">Features</a>
-            <a href="index.html#faq" class="mobile-link text-gray-700 hover:text-primary-main font-medium">FAQ</a>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg py-4 px-4 flex flex-col space-y-4 dark:bg-gray-900 dark:border-gray-800">
+            <a href="index.html#features" class="mobile-link text-gray-700 hover:text-primary-main font-medium dark:text-gray-300">Features</a>
+            <a href="index.html#faq" class="mobile-link text-gray-700 hover:text-primary-main font-medium dark:text-gray-300">FAQ</a>
             <a href="#" class="mobile-link text-primary-main font-bold transition">Docs</a>
-            <a href="https://github.com/make-print" target="_blank" class="mobile-link text-gray-700 hover:text-primary-main font-medium">GitHub</a>
-            <div class="border-t border-gray-100 pt-4 flex flex-col space-y-3">
+            <a href="https://github.com/make-print" target="_blank" class="mobile-link text-gray-700 hover:text-primary-main font-medium dark:text-gray-300">GitHub</a>
+            <div class="border-t border-gray-100 pt-4 flex flex-col space-y-3 dark:border-gray-800">
                 <a href="mailto:erud1t3.devs@gmail.com?subject=Custom Solution Inquiry" class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-bold text-white bg-primary-main rounded-lg hover:bg-primary-dark transition shadow-lg shadow-primary-main/30">
                     <iconify-icon icon="mdi:rocket-launch" class="mr-2" width="20"></iconify-icon>
                     Custom Solutions
@@ -81,8 +91,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center mb-12">
-                <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Local Development Guide</h1>
-                <p class="text-lg text-gray-600">How to build and run Make-Print locally.</p>
+                <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Local Development Guide</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300">How to build and run Make-Print locally.</p>
                 
                 <!-- Note Boxes (Grid Layout) -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
@@ -175,17 +185,17 @@
             <div class="space-y-12">
                 
                 <!-- Primitives -->
-                <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <section class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
                     <div class="flex items-center mb-6">
-                        <div class="p-3 bg-purple-100 text-primary-main rounded-lg mr-4">
+                        <div class="p-3 bg-purple-100 dark:bg-purple-900/30 text-primary-main rounded-lg mr-4">
                             <iconify-icon icon="carbon:code" width="24"></iconify-icon>
                         </div>
-                        <h2 class="text-2xl font-bold text-gray-900">Primitives</h2>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Primitives</h2>
                     </div>
-                    <p class="text-gray-600 mb-6">
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
                         <strong>The Foundation.</strong> The <code>primitives</code> repository contains shared development primitives, data structures, algorithms, and utilities that are used across both the client and server. It serves as a submodule for other components.
                         <br><br>
-                        <span class="text-sm bg-purple-50 text-purple-700 px-3 py-1 rounded-full border border-purple-100">
+                        <span class="text-sm bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full border border-purple-100 dark:border-purple-800">
                             <strong>Note:</strong> You typically don't need to run anything here unless you are making changes to shared logic. However, be aware that for the client-side, sensitive keys (like Stripe/AWS) defined here are often replaced with constants or public keys during the build process, as environment variables are not directly accessible in the browser.
                         </span>
                     </p>
@@ -201,19 +211,19 @@
                 <!-- Server & Client (Grid Layout) -->
                 <div class="space-y-12">
                     <!-- Server -->
-                    <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <section class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
                         <div class="flex items-center mb-6">
-                            <div class="p-3 bg-blue-100 text-blue-600 rounded-lg mr-4">
+                            <div class="p-3 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg mr-4">
                                 <iconify-icon icon="carbon:server-dns" width="24"></iconify-icon>
                             </div>
                             <div class="flex-grow">
                                 <div class="flex items-center justify-between">
-                                    <h2 class="text-2xl font-bold text-gray-900">Server</h2>
-                                    <span class="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-100">Port: 3010</span>
+                                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Server</h2>
+                                    <span class="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 text-xs font-bold px-3 py-1 rounded-full border border-blue-100 dark:border-blue-800">Port: 3010</span>
                                 </div>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-6">
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
                             <strong>The Backend.</strong> Built with Node.js, TypeScript, and Express. The server orchestrates the entire application logic, handling secure API endpoints, managing MongoDB database interactions, and facilitating real-time collaboration via WebSockets (Socket.io). It also integrates with Redis for caching and session management, requiring Docker to run the local instance seamlessly.
                         </p>
                         <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
@@ -234,19 +244,19 @@
                     </section>
 
                     <!-- File Converter -->
-                    <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <section class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
                         <div class="flex items-center mb-6">
-                            <div class="p-3 bg-orange-100 text-orange-600 rounded-lg mr-4">
+                            <div class="p-3 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-lg mr-4">
                                 <iconify-icon icon="carbon:document-import" width="24"></iconify-icon>
                             </div>
                             <div class="flex-grow">
                                 <div class="flex items-center justify-between">
-                                    <h2 class="text-2xl font-bold text-gray-900">File Converter</h2>
-                                    <span class="bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1 rounded-full border border-orange-100">Port: 5000</span>
+                                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">File Converter</h2>
+                                    <span class="bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 text-xs font-bold px-3 py-1 rounded-full border border-orange-100 dark:border-orange-800">Port: 5000</span>
                                 </div>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-6">
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
                             <strong>The 3D Engine.</strong> A specialized Python API service dedicated to processing 3D files. It handles the heavy lifting of converting various 3D file formats (STL, OBJ, STEP, etc.) into formats suitable for web viewing and analysis.
                         </p>
                         <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
@@ -262,19 +272,19 @@
                     </section>
 
                     <!-- Client -->
-                    <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <section class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
                         <div class="flex items-center mb-6">
-                            <div class="p-3 bg-green-100 text-green-600 rounded-lg mr-4">
+                            <div class="p-3 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg mr-4">
                                 <iconify-icon icon="carbon:application-web" width="24"></iconify-icon>
                             </div>
                             <div class="flex-grow">
                                 <div class="flex items-center justify-between">
-                                    <h2 class="text-2xl font-bold text-gray-900">Client</h2>
-                                    <span class="bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full border border-green-100">Port: 5173</span>
+                                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Client</h2>
+                                    <span class="bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 text-xs font-bold px-3 py-1 rounded-full border border-green-100 dark:border-green-800">Port: 5173</span>
                                 </div>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-6">
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
                             <strong>The Frontend.</strong> A modern, responsive single-page application (SPA) built with React, TypeScript, and Vite. It delivers a rich user experience featuring an interactive Kanban board for project management, a high-performance 3D viewer (Three.js/React Three Fiber) for inspecting models, and a real-time chat interface. It communicates with the server via REST APIs and WebSockets.
                         </p>
                         <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
@@ -319,13 +329,13 @@
                 </section> -->
 
                 <!-- Success Message -->
-                <div class="bg-green-50 border border-green-100 rounded-xl p-8 text-center mb-12">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-4">
+                <div class="bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800 rounded-xl p-8 text-center mb-12">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 rounded-full mb-4">
                         <iconify-icon icon="carbon:checkmark-filled" width="32"></iconify-icon>
                     </div>
-                    <h3 class="text-2xl font-bold text-green-800 mb-2">You're All Set!</h3>
-                    <p class="text-green-700 max-w-lg mx-auto">
-                        Once all 3 terminals are running their respective components, you can open your browser and navigate to <a href="http://localhost:5173" class="underline font-bold hover:text-green-900">http://localhost:5173</a> to see the app in action. Happy coding!
+                    <h3 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-2">You're All Set!</h3>
+                    <p class="text-green-700 dark:text-green-400 max-w-lg mx-auto">
+                        Once all 3 terminals are running their respective components, you can open your browser and navigate to <a href="http://localhost:5173" class="underline font-bold hover:text-green-900 dark:hover:text-green-200">http://localhost:5173</a> to see the app in action. Happy coding!
                     </p>
                 </div>
 
@@ -350,40 +360,31 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 bg-white border-t border-gray-100">
+    <footer class="py-12 bg-white border-t border-gray-100 dark:bg-gray-900 dark:border-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex justify-center mb-6">
-                <img src="./assets/icons/mplogo.svg" alt="Make Print" class="h-8">
+                <img src="./assets/icons/mplogo.svg" alt="Make Print" class="h-8 filter dark:invert">
             </div>
             
             <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://discord.gg/frr8qHsu6M" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:discord-fill" width="24"></iconify-icon></a>
-                <a href="https://www.linkedin.com/company/make-print/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:linkedin-box-fill" width="24"></iconify-icon></a>
-                <a href="https://www.youtube.com/@make-print" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:youtube-fill" width="24"></iconify-icon></a>
-                <a href="https://www.instagram.com/make.prints/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:instagram-fill" width="24"></iconify-icon></a>
+                <a href="https://discord.gg/frr8qHsu6M" target="_blank" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400"><iconify-icon icon="akar-icons:discord-fill" width="24"></iconify-icon></a>
+                <a href="https://www.linkedin.com/company/make-print/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400"><iconify-icon icon="akar-icons:linkedin-box-fill" width="24"></iconify-icon></a>
+                <a href="https://www.youtube.com/@make-print" target="_blank" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400"><iconify-icon icon="akar-icons:youtube-fill" width="24"></iconify-icon></a>
+                <a href="https://www.instagram.com/make.prints/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-400"><iconify-icon icon="akar-icons:instagram-fill" width="24"></iconify-icon></a>
             </div>
 
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm text-gray-500 mb-6">
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm text-gray-500 dark:text-gray-400 mb-6">
                 <a href="mailto:erud1t3.devs@gmail.com" class="flex items-center hover:text-primary-main"><iconify-icon icon="ri:mail-line" class="mr-2"></iconify-icon> erud1t3.devs@gmail.com</a>
             </div>
 
-            <p class="text-xs text-gray-400">
+            <p class="text-xs text-gray-400 dark:text-gray-500">
                 © <span id="current-year">2024</span> Make-Print, LLC. All Rights Reserved.
             </p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const header = document.getElementById('main-header');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Copyright Year
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
