@@ -15,8 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
             answer: `Yes! you can have a direct impact on how we build the platform by requesting features that you want. We are always looking to improve our platform for you and your feedback is invaluable to us. To do so, join our Discord community (<a href="https://discord.gg/frr8qHsu6M" target="_blank" rel="noopener noreferrer" class="text-primary-main underline">https://discord.gg/frr8qHsu6M</a>) and share your thoughts with us.`,
         },
         {
+            question: 'Can I use Make-Print for my own shop?',
+            answer: `Absolutely! Since Make-Print is open source, you can fork the repository and build it specifically for your shop's needs. Alternatively, if you prefer a managed solution or need custom features built, you can contact us at <a href="mailto:erud1t3.devs@gmail.com?subject=Custom Solution Inquiry" class="text-primary-main underline">erud1t3.devs@gmail.com</a> and we can build a custom solution for you at a fair price.`,
+        },
+        {
             question: 'How can I request support from the Make-Print team?',
-            answer: `For any support requests, you can reach out to us directly via <a href="mailto:make-print@make-print.com" class="text-primary-main underline">make-print@make-print.com</a>. Our dedicated support team is always ready to assist you with any queries or issues you might encounter.`,
+            answer: `For any support requests, you can reach out to us directly via <a href="mailto:erud1t3.devs@gmail.com" class="text-primary-main underline">erud1t3.devs@gmail.com</a>. Our dedicated support team is always ready to assist you with any queries or issues you might encounter.`,
         }
     ];
 
