@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docs | Make-Print</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Public Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            main: '#AA00FF',
+                            light: '#E2B8FF',
+                            dark: '#7800B3'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800 antialiased bg-gray-50">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="./assets/icons/mplogo.svg" alt="Make Print Logo" class="h-8">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="index.html#features" class="text-gray-700 hover:text-primary-main transition">Features</a>
+                <a href="index.html#faq" class="text-gray-700 hover:text-primary-main transition">FAQ</a>
+                <a href="#" class="text-primary-main font-bold transition">Docs</a>
+            </nav>
+
+            <!-- Auth Buttons & Mobile Menu -->
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/make-print" target="_blank" class="hidden md:inline-flex items-center justify-center px-4 py-2 border border-gray-900 text-sm font-bold text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition">
+                    <iconify-icon icon="akar-icons:github-fill" class="mr-2" width="20"></iconify-icon>
+                    GitHub
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-primary-main focus:outline-none">
+                    <iconify-icon icon="carbon:menu" width="28"></iconify-icon>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg py-4 px-4 flex flex-col space-y-4">
+            <a href="index.html#features" class="mobile-link text-gray-700 hover:text-primary-main font-medium">Features</a>
+            <a href="index.html#faq" class="mobile-link text-gray-700 hover:text-primary-main font-medium">FAQ</a>
+            <a href="#" class="mobile-link text-primary-main font-bold transition">Docs</a>
+            <div class="border-t border-gray-100 pt-4 flex flex-col space-y-3">
+                <a href="https://github.com/make-print" target="_blank" class="w-full flex items-center justify-center px-4 py-2 border border-gray-900 text-sm font-bold text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition">
+                    <iconify-icon icon="akar-icons:github-fill" class="mr-2" width="20"></iconify-icon>
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="pt-24 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Local Development Guide</h1>
+                <p class="text-lg text-gray-600">How to build and run Make-Print locally.</p>
+                
+                <!-- Note Boxes (Grid Layout) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+                    <!-- Separate Terminals Note -->
+                    <div class="bg-yellow-50 border border-yellow-100 rounded-xl p-6 text-left flex items-start shadow-sm h-full">
+                        <iconify-icon icon="carbon:warning-alt" class="text-yellow-600 mt-1 mr-4 flex-shrink-0" width="24"></iconify-icon>
+                        <div>
+                            <h3 class="text-yellow-800 font-bold mb-2">Important: Separate Terminals</h3>
+                            <p class="text-yellow-700 text-sm leading-relaxed">
+                                Each active component (Server, Client, File Converter) must be run in its own separate terminal window or command prompt session. They are independent processes that need to run concurrently.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Branch Strategy Note -->
+                    <div class="bg-blue-50 border border-blue-100 rounded-xl p-6 text-left flex items-start shadow-sm h-full">
+                        <iconify-icon icon="carbon:branch" class="text-blue-600 mt-1 mr-4 flex-shrink-0" width="24"></iconify-icon>
+                        <div>
+                            <h3 class="text-blue-800 font-bold mb-2">Choose Your Branch</h3>
+                            <p class="text-blue-700 text-sm leading-relaxed">
+                                <span class="font-semibold">Main Branch:</span> Stable releases. Use this for a reliable experience.<br>
+                                <span class="font-semibold">Dev Branch:</span> Latest features. Use this to contribute or test bleeding-edge changes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Keys Note -->
+                <div class="mt-6 max-w-7xl mx-auto bg-purple-50 border border-purple-100 rounded-xl p-6 text-left flex items-start shadow-sm">
+                    <iconify-icon icon="carbon:api" class="text-purple-600 mt-1 mr-4 flex-shrink-0" width="24"></iconify-icon>
+                    <div>
+                        <h3 class="text-purple-800 font-bold mb-2">Required API Keys & Environment Variables</h3>
+                        <p class="text-purple-700 text-sm leading-relaxed mb-2">
+                            The project requires several environment variables to function correctly. Create a <code>.env</code> file in the <code>server/</code> directory with the following keys:
+                        </p>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto mt-4">
+                            <code class="text-sm text-gray-100 font-mono">
+                                <span class="text-gray-500"># Core Configuration</span><br>
+                                NODE_ENV=dev                                <span class="text-gray-600 ml-4"># Environment mode (dev/prod)</span><br>
+                                PORT=3010                                   <span class="text-gray-600 ml-4"># Server port</span><br>
+                                MONGODB_URI=...                             <span class="text-gray-600 ml-4"># MongoDB connection string</span><br>
+                                SESSION_SECRET=...                          <span class="text-gray-600 ml-4"># Session encryption secret</span><br>
+                                SERVER_URL=http://localhost:3010            <span class="text-gray-600 ml-4"># Backend URL</span><br>
+                                CLIENT_URL=http://localhost:5173            <span class="text-gray-600 ml-4"># Frontend URL</span><br>
+                                FC_URL=http://localhost:5000                <span class="text-gray-600 ml-4"># File Converter URL</span><br><br>
+
+                                <span class="text-gray-500"># AI Features</span><br>
+                                OPENAI_API_KEY=...                          <span class="text-gray-600 ml-4"># OpenAI API Key</span><br>
+                                HUGGINGFACE_API_KEY=...                     <span class="text-gray-600 ml-4"># HuggingFace API Key</span><br><br>
+
+                                <span class="text-gray-500"># AWS Resources</span><br>
+                                AWS_ID=...                                  <span class="text-gray-600 ml-4"># S3 Bucket Access Key ID</span><br>
+                                AWS_KEY=...                                 <span class="text-gray-600 ml-4"># S3 Bucket Secret Key</span><br>
+                                APP_AWS_ID=...                              <span class="text-gray-600 ml-4"># Application AWS Access Key ID</span><br>
+                                APP_AWS_KEY=...                             <span class="text-gray-600 ml-4"># Application AWS Secret Key</span><br>
+                                AWS_SES_ID=...                              <span class="text-gray-600 ml-4"># SES Access Key ID (Email)</span><br>
+                                AWS_SES_KEY=...                             <span class="text-gray-600 ml-4"># SES Secret Key (Email)</span><br>
+                                S3_ACCOUNT_ID=...                           <span class="text-gray-600 ml-4"># AWS Account ID for S3</span><br><br>
+
+                                <span class="text-gray-500"># Payments</span><br>
+                                STRIPE_SECRET_KEY=...                       <span class="text-gray-600 ml-4"># Stripe Secret Key</span><br>
+                                STRIPE_ACCOUNT_ID=...                       <span class="text-gray-600 ml-4"># Stripe Connected Account ID</span><br>
+                                PAYPAL_CLIENT_ID=...                        <span class="text-gray-600 ml-4"># PayPal Client ID</span><br>
+                                PAYPAL_SECRET=...                           <span class="text-gray-600 ml-4"># PayPal Secret</span><br><br>
+
+                                <span class="text-gray-500"># Auth (Optional)</span><br>
+                                GOOGLE_ID=...                               <span class="text-gray-600 ml-4"># Google OAuth Client ID</span><br>
+                                GOOGLE_SECRET=...                           <span class="text-gray-600 ml-4"># Google OAuth Client Secret</span><br>
+                                FACEBOOK_ID=...                             <span class="text-gray-600 ml-4"># Facebook App ID</span><br>
+                                FACEBOOK_SECRET=...                         <span class="text-gray-600 ml-4"># Facebook App Secret</span><br>
+                                GITHUB_ID=...                               <span class="text-gray-600 ml-4"># GitHub Client ID</span><br>
+                                GITHUB_SECRET=...                           <span class="text-gray-600 ml-4"># GitHub Client Secret</span><br>
+                                TWITTER_ID=...                              <span class="text-gray-600 ml-4"># Twitter API Key</span><br>
+                                TWITTER_SECRET=...                          <span class="text-gray-600 ml-4"># Twitter API Key Secret</span><br><br>
+
+                                <span class="text-gray-500"># Redis</span><br>
+                                REDIS_HOST=localhost                        <span class="text-gray-600 ml-4"># Redis Hostname</span><br>
+                                REDIS_PORT=6379                             <span class="text-gray-600 ml-4"># Redis Port</span><br><br>
+
+                                <span class="text-gray-500"># Other</span><br>
+                                NOTIFICATION_EMAIL_PERIOD=1                 <span class="text-gray-600 ml-4"># Email digest frequency (mins)</span><br>
+                                TZ=America/New_York                         <span class="text-gray-600 ml-4"># Timezone</span>
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-12">
+                
+                <!-- Primitives -->
+                <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-purple-100 text-primary-main rounded-lg mr-4">
+                            <iconify-icon icon="carbon:code" width="24"></iconify-icon>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900">Primitives</h2>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        <strong>The Foundation.</strong> The <code>primitives</code> repository contains shared development primitives, data structures, algorithms, and utilities that are used across both the client and server. It serves as a submodule for other components.
+                        <br><br>
+                        <span class="text-sm bg-purple-50 text-purple-700 px-3 py-1 rounded-full border border-purple-100">
+                            <strong>Note:</strong> You typically don't need to run anything here unless you are making changes to shared logic. However, be aware that for the client-side, sensitive keys (like Stripe/AWS) defined here are often replaced with constants or public keys during the build process, as environment variables are not directly accessible in the browser.
+                        </span>
+                    </p>
+                    <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                        <code class="text-sm text-gray-100 font-mono">
+                            <span class="text-gray-500"># Clone repository (only if editing shared logic)</span><br>
+                            git clone https://github.com/make-print/primitives.git<br>
+                            cd primitives
+                        </code>
+                    </div>
+                </section>
+
+                <!-- Server & Client (Grid Layout) -->
+                <div class="space-y-12">
+                    <!-- Server -->
+                    <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div class="p-3 bg-blue-100 text-blue-600 rounded-lg mr-4">
+                                <iconify-icon icon="carbon:server-dns" width="24"></iconify-icon>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-2xl font-bold text-gray-900">Server</h2>
+                                    <span class="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-100">Port: 3010</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">
+                            <strong>The Backend.</strong> Built with Node.js, TypeScript, and Express. The server orchestrates the entire application logic, handling secure API endpoints, managing MongoDB database interactions, and facilitating real-time collaboration via WebSockets (Socket.io). It also integrates with Redis for caching and session management, requiring Docker to run the local instance seamlessly.
+                        </p>
+                        <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                            <code class="text-sm text-gray-100 font-mono">
+                                <span class="text-gray-500"># Clone repository</span><br>
+                                git clone https://github.com/make-print/server.git<br>
+                                cd server<br><br>
+                                <span class="text-gray-500"># Install dependencies</span><br>
+                                npm install<br><br>
+                                <span class="text-gray-500"># Install submodules</span><br>
+                                npm run installSubmodules<br><br>
+                                <span class="text-gray-500"># Start server (development mode - auto starts Redis)</span><br>
+                                npm run dev<br><br>
+                                <span class="text-gray-500"># OR Compile for production</span><br>
+                                npm run compile
+                            </code>
+                        </div>
+                    </section>
+
+                    <!-- File Converter -->
+                    <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div class="p-3 bg-orange-100 text-orange-600 rounded-lg mr-4">
+                                <iconify-icon icon="carbon:document-import" width="24"></iconify-icon>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-2xl font-bold text-gray-900">File Converter</h2>
+                                    <span class="bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1 rounded-full border border-orange-100">Port: 5000</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">
+                            <strong>The 3D Engine.</strong> A specialized Python API service dedicated to processing 3D files. It handles the heavy lifting of converting various 3D file formats (STL, OBJ, STEP, etc.) into formats suitable for web viewing and analysis.
+                        </p>
+                        <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                            <code class="text-sm text-gray-100 font-mono">
+                                <span class="text-gray-500"># Clone repository</span><br>
+                                git clone https://github.com/make-print/file-conversion.git<br><br>
+                                <span class="text-gray-500"># Install requirements</span><br>
+                                pip install -r requirements.txt<br><br>
+                                <span class="text-gray-500"># Run application</span><br>
+                                python main.py
+                            </code>
+                        </div>
+                    </section>
+
+                    <!-- Client -->
+                    <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-6">
+                            <div class="p-3 bg-green-100 text-green-600 rounded-lg mr-4">
+                                <iconify-icon icon="carbon:application-web" width="24"></iconify-icon>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-2xl font-bold text-gray-900">Client</h2>
+                                    <span class="bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full border border-green-100">Port: 5173</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">
+                            <strong>The Frontend.</strong> A modern, responsive single-page application (SPA) built with React, TypeScript, and Vite. It delivers a rich user experience featuring an interactive Kanban board for project management, a high-performance 3D viewer (Three.js/React Three Fiber) for inspecting models, and a real-time chat interface. It communicates with the server via REST APIs and WebSockets.
+                        </p>
+                        <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                            <code class="text-sm text-gray-100 font-mono">
+                                <span class="text-gray-500"># Clone repository</span><br>
+                                git clone https://github.com/make-print/client.git<br>
+                                cd client<br><br>
+                                <span class="text-gray-500"># Install dependencies</span><br>
+                                npm install<br><br>
+                                <span class="text-gray-500"># Install submodules</span><br>
+                                npm run installSubmodules<br><br>
+                                <span class="text-gray-500"># Start development server</span><br>
+                                npm run dev<br><br>
+                                <span class="text-gray-500"># OR Build for production</span><br>
+                                npm run build
+                            </code>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- File Converter -->
+                <!-- <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-orange-100 text-orange-600 rounded-lg mr-4">
+                            <iconify-icon icon="carbon:document-import" width="24"></iconify-icon>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900">File Converter</h2>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        <strong>The 3D Engine.</strong> A specialized Python API service dedicated to processing 3D files. It handles the heavy lifting of converting various 3D file formats (STL, OBJ, STEP, etc.) into formats suitable for web viewing and analysis.
+                    </p>
+                    <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                        <code class="text-sm text-gray-100 font-mono">
+                            <span class="text-gray-500"># Clone repository</span><br>
+                            git clone https://github.com/make-print/file-conversion.git<br><br>
+                            <span class="text-gray-500"># Install requirements</span><br>
+                            pip install -r requirements.txt<br><br>
+                            <span class="text-gray-500"># Run application</span><br>
+                            python main.py
+                        </code>
+                    </div>
+                </section> -->
+
+                <!-- Success Message -->
+                <div class="bg-green-50 border border-green-100 rounded-xl p-8 text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-4">
+                        <iconify-icon icon="carbon:checkmark-filled" width="32"></iconify-icon>
+                    </div>
+                    <h3 class="text-2xl font-bold text-green-800 mb-2">You're All Set!</h3>
+                    <p class="text-green-700 max-w-lg mx-auto">
+                        Once all 3 terminals are running their respective components, you can open your browser and navigate to <a href="http://localhost:5173" class="underline font-bold hover:text-green-900">http://localhost:5173</a> to see the app in action. Happy coding!
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center mb-6">
+                <img src="./assets/icons/mplogo.svg" alt="Make Print" class="h-8">
+            </div>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://discord.gg/frr8qHsu6M" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:discord-fill" width="24"></iconify-icon></a>
+                <a href="https://www.linkedin.com/company/make-print/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:linkedin-box-fill" width="24"></iconify-icon></a>
+                <a href="https://www.youtube.com/@make-print" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:youtube-fill" width="24"></iconify-icon></a>
+                <a href="https://www.instagram.com/make.prints/" target="_blank" class="p-2 rounded-full hover:bg-gray-100 transition text-gray-600"><iconify-icon icon="akar-icons:instagram-fill" width="24"></iconify-icon></a>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm text-gray-500 mb-6">
+                <a href="mailto:make-print@make-print.com" class="flex items-center hover:text-primary-main"><iconify-icon icon="ri:mail-line" class="mr-2"></iconify-icon> make-print@make-print.com</a>
+            </div>
+
+            <p class="text-xs text-gray-400">
+                © <span id="current-year">2024</span> Make-Print, LLC. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.getElementById('main-header');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Copyright Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
